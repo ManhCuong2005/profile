@@ -14,6 +14,7 @@
         :personal="profileData.personal" 
         :stats="profileData.stats"
         @open-cv="isCvModalOpen = true"
+        @open-avatar="isAvatarModalOpen = true"
       />
 
       <AboutSection 
@@ -54,6 +55,13 @@
       :profile="profileData"
       @close="isCvModalOpen = false"
     />
+
+    <!-- Avatar Lightbox Modal (Click-to-zoom Avatar) -->
+    <AvatarModal
+      :is-open="isAvatarModalOpen"
+      :personal="profileData.personal"
+      @close="isAvatarModalOpen = false"
+    />
   </div>
 </template>
 
@@ -72,8 +80,10 @@ import ContactSection from './components/ContactSection.vue'
 import Footer from './components/Footer.vue'
 import MobileBottomNav from './components/MobileBottomNav.vue'
 import PrintCvModal from './components/PrintCvModal.vue'
+import AvatarModal from './components/AvatarModal.vue'
 
 const isCvModalOpen = ref(false)
+const isAvatarModalOpen = ref(false)
 const isDark = ref(false)
 
 const toggleTheme = () => {
