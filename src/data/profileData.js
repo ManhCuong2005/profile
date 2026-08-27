@@ -12,7 +12,7 @@ export const profileData = {
     subtitle:
       "Sinh viên Kỹ sư Công nghệ Thông tin đam mê xây dựng hệ thống mạng Realtime, ứng dụng Thương mại điện tử tích hợp AI & Blockchain.",
     avatar:
-      "https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/740903240_1344274824483181_115906560108752372_n.jpg?stp=dst-jpg_tt6&cstp=mx1020x1020&ctp=s1020x1020&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHgF_EwHzGvN3kVE7OOTjMJHh8hS_eV8uEeHyFL95Xy4TxhW3ZAJbcufnXrsggFGD2cVwA7Xbk7YTVneUwNMNaI&_nc_ohc=XqyMWMQYhKYQ7kNvwGL3oTa&_nc_oc=AdpTRN4hYsSItO1pUxkLqqMYGe2V3LsONGyZWCK-hDHbeJxuPuUIfBEGYRDt6kosJUs&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=CHa76o52v-QlQRBc7pRzyA&_nc_ss=7b2a8&oh=00_AQFd1XifT6jzG10TwmszNN_8Q2VgMkzySySpK_AY9h1WEg&oe=6A95981F",
+      "https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/474058570_1278342513436206_7702882073675870558_n.jpg?stp=dst-jpg_tt6&cstp=mx1509x1497&ctp=s1509x1497&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeED5qfSe8CfF_iqLk3k1MscOQMSKjtEjzQ5AxIqO0SPNC-p3Rxc6DO6nFvUOqBv8EC7pxB0lroJgidctQ9xzGYJ&_nc_ohc=1bVVTuJRBw4Q7kNvwEBIRCY&_nc_oc=AdrXP_lFb-FXOzwYKYl7NZS7UuKIDIfBEjmMfduqYb73A1iFpR94MVWt3iJjM_C85Lk&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=aJHm3GIImG929J4DUYUjvQ&_nc_ss=7b2a8&oh=00_AQH8-h7MB4apCJKFJ24OlQqNrwthgWJJrU0TbfruvGI2JQ&oe=6A95B73B",
     openToWork: true, // Trạng thái sẵn sàng nhận việc
     workStatusText: "Sẵn sàng cho cơ hội Thực tập & Dự án mới",
     location: "Đà Nẵng, Việt Nam",
