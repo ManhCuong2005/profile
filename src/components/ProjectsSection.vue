@@ -5,10 +5,10 @@
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
         <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-1.5 sm:mb-2">
-          Dự án tiêu biểu
+          {{ t('projects.sectionLabel') }}
         </h2>
         <p class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Sản phẩm thực tế & Cá nhân
+          {{ t('projects.sectionTitle') }}
         </p>
         <div class="w-12 sm:w-16 h-1 bg-gradient-to-r from-brand-600 to-indigo-500 mx-auto mt-3 rounded-full"></div>
       </div>
@@ -89,7 +89,7 @@
                   class="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-brand-50 dark:bg-brand-950/60 hover:bg-brand-600 hover:text-white text-brand-600 dark:text-brand-400 text-xs font-bold active:scale-95 transition-all shadow-sm group-hover:shadow-brand-500/20"
                 >
                   <ExternalLink class="w-3.5 h-3.5" />
-                  <span>Trải nghiệm Demo</span>
+                  <span>{{ t('projects.demoBtn') }}</span>
                 </a>
                 <a 
                   v-if="project.githubUrl" 
@@ -116,6 +116,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { ExternalLink, Github } from 'lucide-vue-next'
+import { t } from '../composables/useLang.js'
 
 const props = defineProps({
   projects: {
@@ -126,12 +127,12 @@ const props = defineProps({
 
 const activeFilter = ref('all')
 
-const filterOptions = [
-  { label: 'Tất cả dự án', value: 'all' },
-  { label: 'Web Application', value: 'web' },
-  { label: 'Desktop & Network', value: 'web' },
-  { label: 'UI/UX & Khác', value: 'design' }
-]
+const filterOptions = computed(() => [
+  { label: t('projects.filterAll'), value: 'all' },
+  { label: t('projects.filterWeb'), value: 'web' },
+  { label: t('projects.filterDesktop'), value: 'desktop' },
+  { label: t('projects.filterDesign'), value: 'design' },
+])
 
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'all') return props.projects

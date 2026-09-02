@@ -2,47 +2,50 @@
   <div class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white pb-20 md:pb-0">
     <!-- Navbar (Top Header) -->
     <Navbar 
-      :personal="profileData.personal" 
+      :personal="activeProfile.personal" 
       :is-dark="isDark"
+      :lang="lang"
       @toggle-theme="toggleTheme"
+      @toggle-lang="toggleLang"
       @open-cv="isCvModalOpen = true"
     />
 
     <!-- Main Content -->
     <main class="flex-1">
       <HeroSection 
-        :personal="profileData.personal" 
-        :stats="profileData.stats"
+        :personal="activeProfile.personal" 
+        :stats="activeProfile.stats"
         @open-cv="isCvModalOpen = true"
         @open-avatar="isAvatarModalOpen = true"
       />
 
       <AboutSection 
-        :personal="profileData.personal" 
-        :services="profileData.services" 
+        :personal="activeProfile.personal" 
+        :services="activeProfile.services" 
       />
 
       <ExperienceSection 
-        :experiences="profileData.experiences"
-        :education="profileData.education"
-        :certifications="profileData.certifications"
+        :experiences="activeProfile.experiences"
+        :business-experiences="activeProfile.businessExperiences"
+        :education="activeProfile.education"
+        :certifications="activeProfile.certifications"
       />
 
       <SkillsSection 
-        :categories="profileData.skillCategories" 
+        :categories="activeProfile.skillCategories" 
       />
 
       <ProjectsSection 
-        :projects="profileData.projects" 
+        :projects="activeProfile.projects" 
       />
 
       <ContactSection 
-        :personal="profileData.personal" 
+        :personal="activeProfile.personal" 
       />
     </main>
 
     <!-- Footer -->
-    <Footer :personal="profileData.personal" />
+    <Footer :personal="activeProfile.personal" />
 
     <!-- Mobile Bottom Floating Navigation Bar (Mobile-First UX) -->
     <MobileBottomNav 
@@ -52,22 +55,24 @@
     <!-- Print CV Modal -->
     <PrintCvModal 
       :is-open="isCvModalOpen"
-      :profile="profileData"
+      :profile="activeProfile"
       @close="isCvModalOpen = false"
     />
 
     <!-- Avatar Lightbox Modal (Click-to-zoom Avatar) -->
     <AvatarModal
       :is-open="isAvatarModalOpen"
-      :personal="profileData.personal"
+      :personal="activeProfile.personal"
       @close="isAvatarModalOpen = false"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { profileData } from './data/profileData'
+import { profileData as profileDataEn } from './data/profileData.en.js'
+import { lang, toggleLang } from './composables/useLang.js'
 
 // Components
 import Navbar from './components/Navbar.vue'
@@ -85,6 +90,8 @@ import AvatarModal from './components/AvatarModal.vue'
 const isCvModalOpen = ref(false)
 const isAvatarModalOpen = ref(false)
 const isDark = ref(false)
+
+const activeProfile = computed(() => lang.value === 'vi' ? profileData : profileDataEn)
 
 const toggleTheme = () => {
   isDark.value = !isDark.value

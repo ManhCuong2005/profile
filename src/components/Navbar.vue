@@ -29,6 +29,14 @@
 
       <!-- Action Buttons (Theme Toggle & CV Action) -->
       <div class="hidden sm:flex items-center gap-3">
+        <!-- Lang Toggle -->
+        <button 
+          @click="$emit('toggle-lang')" 
+          class="px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition-colors"
+        >
+          {{ lang === 'vi' ? '🇺🇸 EN' : '🇻🇳 VI' }}
+        </button>
+
         <!-- Theme Toggle -->
         <button 
           @click="toggleTheme" 
@@ -45,12 +53,20 @@
           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm hover:shadow-md shadow-brand-600/20 active:scale-95 transition-all"
         >
           <FileText class="w-4 h-4" />
-          <span>Xem & In CV</span>
+          <span>{{ t('nav.viewCv') }}</span>
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
       <div class="flex items-center gap-2 md:hidden">
+        <!-- Lang Toggle Mobile -->
+        <button 
+          @click="$emit('toggle-lang')" 
+          class="px-2 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
+        >
+          {{ lang === 'vi' ? '🇺🇸 EN' : '🇻🇳 VI' }}
+        </button>
+
         <button 
           @click="toggleTheme" 
           class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -99,7 +115,7 @@
             class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm"
           >
             <FileText class="w-4 h-4" />
-            <span>Xem & In CV (Bản Chuẩn)</span>
+            <span>{{ t('nav.viewCvFull') }}</span>
           </button>
         </div>
       </div>
@@ -110,6 +126,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { Sun, Moon, FileText, Menu, X } from 'lucide-vue-next'
+import { t, lang } from '../composables/useLang.js'
 
 const props = defineProps({
   personal: {
@@ -119,21 +136,25 @@ const props = defineProps({
   isDark: {
     type: Boolean,
     default: false
+  },
+  lang: {
+    type: String,
+    default: 'vi'
   }
 })
 
-const emit = defineEmits(['toggle-theme', 'open-cv'])
+const emit = defineEmits(['toggle-theme', 'toggle-lang', 'open-cv'])
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 
-const navItems = [
-  { label: 'Giới thiệu', href: '#about' },
-  { label: 'Kinh nghiệm', href: '#experience' },
-  { label: 'Kỹ năng', href: '#skills' },
-  { label: 'Dự án', href: '#projects' },
-  { label: 'Liên hệ', href: '#contact' },
-]
+const navItems = computed(() => [
+  { label: t('nav.about'), href: '#about' },
+  { label: t('nav.experience'), href: '#experience' },
+  { label: t('nav.skills'), href: '#skills' },
+  { label: t('nav.projects'), href: '#projects' },
+  { label: t('nav.contact'), href: '#contact' },
+])
 
 const brandInitials = computed(() => {
   if (!props.personal.fullName) return 'CV'
