@@ -71,6 +71,24 @@
         <!-- IT Milestone Cards -->
         <div class="relative space-y-6 before:absolute before:left-4 sm:before:left-5 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-brand-500 before:via-indigo-500 before:to-purple-500">
           
+          <!-- Milestone: 2023-2028 (University) -->
+          <div class="relative flex gap-4 sm:gap-6 group">
+            <div class="relative z-10 flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 text-white flex items-center justify-center text-[9px] sm:text-xs font-extrabold shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform mt-1">
+              🎓
+            </div>
+            <div class="card-shimmer flex-1 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 hover:-translate-y-0.5 transition-all duration-300">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold border border-emerald-200/50">{{ t('experience.univBadge') }}</span>
+                <span class="px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-[11px] font-bold border border-amber-200/50">{{ t('experience.univGpa') }}</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1">{{ t('experience.univTitle') }}</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3">{{ t('experience.univDesc') }}</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span v-for="t in ['Algorithms & DS', 'Network Programming', 'AI Fundamentals', 'Database Systems', 'OOP & Design Patterns']" :key="t" class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-medium">{{ t }}</span>
+              </div>
+            </div>
+          </div>
+
           <!-- Milestone: 2023 — Project 1: Food Ordering App (OOP) -->
           <div class="relative flex gap-4 sm:gap-6 group">
             <div class="relative z-10 flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center text-xs sm:text-sm font-extrabold shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform mt-1">
@@ -103,24 +121,6 @@
               <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3">{{ t('experience.m23p2Desc') }}</p>
               <div class="flex flex-wrap gap-1.5">
                 <span v-for="t in ['Java Thread', 'Multithreading', 'Socket cơ bản', 'I/O Streams', 'JavaSwing']" :key="t" class="px-2 py-0.5 rounded-md bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 text-[10px] font-medium border border-cyan-100 dark:border-cyan-900">{{ t }}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Milestone: 2023-2028 (University) -->
-          <div class="relative flex gap-4 sm:gap-6 group">
-            <div class="relative z-10 flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 text-white flex items-center justify-center text-[9px] sm:text-xs font-extrabold shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform mt-1">
-              🎓
-            </div>
-            <div class="card-shimmer flex-1 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 hover:-translate-y-0.5 transition-all duration-300">
-              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="px-3 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold border border-emerald-200/50">{{ t('experience.univBadge') }}</span>
-                <span class="px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-[11px] font-bold border border-amber-200/50">{{ t('experience.univGpa') }}</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1">{{ t('experience.univTitle') }}</h3>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3">{{ t('experience.univDesc') }}</p>
-              <div class="flex flex-wrap gap-1.5">
-                <span v-for="t in ['Algorithms & DS', 'Network Programming', 'AI Fundamentals', 'Database Systems', 'OOP & Design Patterns']" :key="t" class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-medium">{{ t }}</span>
               </div>
             </div>
           </div>
